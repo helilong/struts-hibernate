@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 配置常量区  （讲完原理再讲） -->
+
+    <!-- 该常量代表是否使用  Struts2非常强大的功能      动态代理模式 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 代表是否使用开发者模式  以便于调试bug -->
+    <constant name="struts.devMode" value="true"></constant>
+    <!-- 使用的编码格式       utf-8 -->
+    <constant name="struts.i18n.encoding" value="utf-8"></constant>
+    <!-- 代表你实现核心业务   所使用的文件后缀名  （action  do  没有 ）  -->
+    <constant name="struts.action.extension" value="action,do,"></constant>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+
+
+
+    <package name="p1" extends="struts-default">
+        <action name="fin_*" class="com.xiaohe.action.UserAction">
+            <!--        增加     -->
+            <result name="finAdd">finAll</result>
+            <!--        删除     -->
+            <result name="finDelete">finAll</result>
+            <!--        跳转     -->
+            <result name="finEdit">/edit.jsp</result>
+            <!--        修改     -->
+            <result name="finUpdate">finAll</result>
+            <!--        查询显示     -->
+            <result name="finAll">/show.jsp</result>
+        </action>
+
+        <action name="finAll" class="com.xiaohe.action.UserAction" method="finAll">
+            <result name="finAll">/show.jsp</result>
+        </action>
+    </package>
+
+</struts>

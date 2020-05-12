@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xiaohe.pojo">
+    <!-- 配置实体类和表的关系 -->
+    <class name="User" table="userinfo">
+        <!-- 配置实体类属性和表字段的关系 -->
+        <!-- 主键字段 -->
+        <id name="id">
+            <column name="id"></column>
+            <generator class="native"></generator>
+        </id>
+        <!-- 一般字段 -->
+        <property name="user"></property>
+        <property name="password"></property>
+    </class>
+</hibernate-mapping>
